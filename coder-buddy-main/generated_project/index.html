@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="John Doe – Portfolio">
+  <title>John Doe – Portfolio</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <header>
+    <h1 class="logo">John Doe</h1>
+    <nav>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h2 class="hero-title">Hello, I'm John Doe</h2>
+    <p class="hero-subtitle">Frontend Developer &amp; Designer</p>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <p>Brief bio about John Doe. Passionate about creating beautiful and functional web experiences.</p>
+      <h3>Skills</h3>
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>UI/UX Design</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <article class="project-card">
+        <img src="assets/project1.jpg" alt="Project 1" class="project-image" />
+        <div class="project-content">
+          <h3>Project Title 1</h3>
+          <p>Short description of the project, technologies used, and role.</p>
+        </div>
+      </article>
+      <article class="project-card">
+        <img src="assets/project2.jpg" alt="Project 2" class="project-image" />
+        <div class="project-content">
+          <h3>Project Title 2</h3>
+          <p>Short description of the project, technologies used, and role.</p>
+        </div>
+      </article>
+      <article class="project-card">
+        <img src="assets/project3.jpg" alt="Project 3" class="project-image" />
+        <div class="project-content">
+          <h3>Project Title 3</h3>
+          <p>Short description of the project, technologies used, and role.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <form class="contact-form" action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <ul class="social-links">
+      <li><a href="#" target="_blank">LinkedIn</a></li>
+      <li><a href="#" target="_blank">GitHub</a></li>
+      <li><a href="#" target="_blank">Twitter</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 John Doe. All rights reserved.</p>
+  </footer>
+</body>
+</html>

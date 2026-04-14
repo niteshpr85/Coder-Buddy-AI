@@ -1,0 +1,405 @@
+/*
+  Global Stylesheet for Portfolio
+  --------------------------------
+  This stylesheet defines the core design system, layout, and component styles
+  for the portfolio website. It includes:
+    • CSS custom properties for colors and typography
+    • Reset and base styles
+    • Responsive grid system (Flexbox & CSS Grid)
+    • Navigation bar with a hamburger menu (checkbox technique)
+    • Smooth scrolling
+    • Component styles: hero, about, projects, contact, footer
+    • Media queries for tablet (≤768px) and mobile (≤480px)
+*/
+
+/* ---------------------------------------------------------------
+   1. CSS Variables (Color Scheme & Typography)
+   --------------------------------------------------------------- */
+:root {
+  /* Color Scheme */
+  --primary-color: #2c3e50;          /* Dark Blue */
+  --secondary-color: #3498db;        /* Bright Blue */
+  --background-color: #f5f5f5;       /* Light Gray */
+  --text-color: #333333;             /* Dark Gray */
+
+  /* Typography */
+  --font-primary: 'Helvetica Neue', Arial, sans-serif;
+  --font-secondary: 'Georgia', serif;
+
+  /* Spacing */
+  --spacing-unit: 1rem;
+}
+
+/* ---------------------------------------------------------------
+   2. Reset & Base Styles
+   --------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Base font size for rem calculations */
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------------------------------------------------------------
+   3. Utility Classes (Container & Grid)
+   --------------------------------------------------------------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Simple Flexbox grid – can be used for rows */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(-1 * var(--spacing-unit) / 2);
+}
+
+.col {
+  flex: 1 1 0%;
+  padding: calc(var(--spacing-unit) / 2);
+}
+
+/* CSS Grid for project cards */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+/* ---------------------------------------------------------------
+   4. Navigation Bar
+   --------------------------------------------------------------- */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--primary-color);
+  color: #fff;
+  z-index: 1000;
+  padding: 0.5rem var(--spacing-unit);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 1.5rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* Hamburger menu – hidden checkbox technique */
+#nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none; /* shown on mobile */
+  position: absolute;
+  top: 0.5rem;
+  right: var(--spacing-unit);
+  height: 2rem;
+  width: 2rem;
+  cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background: #fff;
+  height: 2px;
+  width: 1.5rem;
+  border-radius: 2px;
+  position: absolute;
+}
+
+.nav-toggle-label span {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.nav-toggle-label span::before {
+  content: '';
+  top: -0.6rem;
+}
+
+.nav-toggle-label span::after {
+  content: '';
+  top: 0.6rem;
+}
+
+/* Mobile navigation – hidden by default */
+@media (max-width: 768px) {
+  .nav-toggle-label {
+    display: block;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    flex-direction: column;
+    background: var(--primary-color);
+    padding-top: 4rem; /* space for close button */
+    transition: right 0.3s ease;
+  }
+
+  .nav-item {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  /* When checkbox is checked, slide the menu in */
+  #nav-toggle:checked ~ .nav-list {
+    right: 0;
+  }
+}
+
+/* ---------------------------------------------------------------
+   5. Hero Section
+   --------------------------------------------------------------- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+  background: var(--secondary-color);
+  color: #fff;
+  padding: var(--spacing-unit);
+}
+
+.hero-title {
+  font-family: var(--font-secondary);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  max-width: 800px;
+}
+
+/* ---------------------------------------------------------------
+   6. About Section
+   --------------------------------------------------------------- */
+.about {
+  padding: calc(2 * var(--spacing-unit)) var(--spacing-unit);
+  background: #fff;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.skills-list li {
+  background: var(--secondary-color);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------------
+   7. Project Cards
+   --------------------------------------------------------------- */
+.project-card {
+  background: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: var(--spacing-unit);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.project-content p {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.project-content .project-links {
+  margin-top: auto;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.project-content .project-links a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------------
+   8. Contact Form
+   --------------------------------------------------------------- */
+.contact {
+  padding: calc(2 * var(--spacing-unit)) var(--spacing-unit);
+  background: #fff;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: var(--spacing-unit);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: var(--secondary-color);
+}
+
+/* ---------------------------------------------------------------
+   9. Footer / Social Links
+   --------------------------------------------------------------- */
+footer {
+  background: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: var(--spacing-unit);
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--secondary-color);
+}
+
+/* ---------------------------------------------------------------
+   10. Media Queries
+   --------------------------------------------------------------- */
+/* Tablet – ≤768px */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .project-card {
+    flex-direction: column;
+  }
+}
+
+/* Mobile – ≤480px */
+@media (max-width: 480px) {
+  .nav-list {
+    width: 100%;
+    right: -100%;
+  }
+
+  #nav-toggle:checked ~ .nav-list {
+    right: 0;
+  }
+
+  .hero {
+    min-height: 60vh;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
