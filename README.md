@@ -7,9 +7,14 @@ It works like a multi-agent development team that can take a natural language re
 
 ## 🏗️ Architecture
 
-- **Planner Agent** – Analyzes your request and generates a detailed project plan.
-- **Architect Agent** – Breaks down the plan into specific engineering tasks with explicit context for each file.
-- **Coder Agent** – Implements each task, writes directly into files, and uses available tools like a real developer.
+Coder Buddy is powered by a multi-agent system:
+
+🧠 Planner Agent
+Analyzes user input and generates a structured project plan.
+🏛️ Architect Agent
+Breaks down the plan into detailed engineering tasks with clear context for each file.
+💻 Coder Agent
+Implements tasks, writes code into files, and uses tools like a real developer.
 
 <img width="1541" height="189" alt="d" src="https://github.com/user-attachments/assets/27b7ea0e-3422-4e41-9b4c-e58d59198288" />
 
@@ -18,18 +23,52 @@ It works like a multi-agent development team that can take a natural language re
 
 ## 🚀 Getting Started
 ### Prerequisites
-- Make sure you have uv installed, follow the instructions [here](https://docs.astral.sh/uv/getting-started/installation/) to install it.
-- Ensure that you have created a groq account and have your API key ready. Create an API key [here](https://console.groq.com/keys).
-
+📋 Prerequisites
+Install uv (Python package manager):
+https://docs.astral.sh/uv/getting-started/installation/
+Create a Groq account and generate an API key:
+https://console.groq.com/keys
 ### ⚙️ **Instsllstion and Startup**
-- Create a virtual environment using: `uv venv` and activate it using `source .venv/bin/activate`
-- Install the dependencies using: `uv pip install -r pyproject.toml`
-- Create a `.env` file and add the variables and their respective values mentioned in the `.sample_env` file
+Clone the repository
 
-Now that we are done with all the set-up & installation steps we can start the application using the following command:
-  ```bash
+git clone https://github.com/your-username/coder-buddy.git
+cd coder-buddy
+
+Create a virtual environment
+
+uv venv
+
+Activate the environment
+
+source .venv/bin/activate   # macOS/Linux
+.venv\Scripts\activate      # Windows
+
+Install dependencies
+
+1.uv pip install -r pyproject.toml
+
+2.Set up environment variables
+
+3.Create a .env file in the root directory
+
+4.Copy values from .sample_env
+
+5.Add your actual credentials (e.g., GROQ_API_KEY)
+
+▶️ Run the Application
+
     python main.py
-  ```
+
+Features
+1.Multi-agent AI system (Planner → Architect → Coder)
+
+2.End-to-end project generation from natural language
+
+3.File-by-file code generation
+
+4.Modular and extensible architecture
+
+5.Real developer-like workflow simulation
 
 ### 🧪 Example Prompts
 - Create a to-do list application using html, css, and javascript.
