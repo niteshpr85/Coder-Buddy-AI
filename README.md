@@ -56,6 +56,7 @@ Install dependencies
 5.Add your actual credentials (e.g., GROQ_API_KEY)
 
 ▶️ Run the Application
+cd coder-Buddy-AI
 
     python main.py
 
@@ -70,9 +71,20 @@ Features
 
 5.Real developer-like workflow simulation
 
+📌 Future Enhancements
+
+1.Add UI dashboard for agent visualization
+
+2.Support more LLM providers
+
+3.Real-time collaboration features
+
+4.Deployment pipeline automation
+
 ### 🧪 Example Prompts
 - Create a to-do list application using html, css, and javascript.
 - Create a simple calculator web application.
 - Create a simple blog API in FastAPI with a SQLite database.
 
 ---
+⭐ If you found this project useful, consider giving it a star.....
