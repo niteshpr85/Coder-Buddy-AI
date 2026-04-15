@@ -83,7 +83,9 @@ Features
 
 ### 🧪 Example Prompts
 - Create a to-do list application using html, css, and javascript.
+- <img width="876" height="423" alt="Screenshot 2026-04-15 145931" src="https://github.com/user-attachments/assets/05867475-5f4a-414a-b989-b1b3b60d125a" />
 - Create a simple calculator web application.
+- <img width="347" height="546" alt="Screenshot 2026-04-15 145952" src="https://github.com/user-attachments/assets/77ff6194-4257-41b6-bb32-9a8625479bd7" />
 - Create a simple blog API in FastAPI with a SQLite database.
 
 ---
